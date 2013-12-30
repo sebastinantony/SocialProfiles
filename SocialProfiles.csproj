@@ -57,11 +57,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\carousel.css" />
+    <Content Include="images\favicon.png" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\holder.js" />
+    <Content Include="js\html5shiv.js" />
+    <Content Include="js\jquery-1.10.2.min.js" />
+    <Content Include="js\respond.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="Response.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GoogleClient.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

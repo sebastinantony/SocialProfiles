@@ -13,5 +13,10 @@ namespace SocialProfiles
         {
 
         }
+
+        protected void btnSign_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("https://developers.google.com/oauthplayground&response_type=code&client_id=" + GoogleClient.clientID + GoogleClient.scope);
+        }
     }
 }

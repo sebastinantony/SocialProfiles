@@ -123,8 +123,8 @@
 
     <div class="container marketing">
 
-      <p class="text-success">Login to Gmail to find your Contacts 
-          <button type="button" class="btn btn-primary">Sign In</button>
+      <p class="text-success">Login to Gmail to find your Contacts
+            <asp:Button ID="btnSign" runat="server" Text="Sign In" CssClass="btn btn-primary" OnClick="btnSign_Click" />
       </p>
 
 

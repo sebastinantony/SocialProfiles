@@ -9,6 +9,6 @@ namespace SocialProfiles
     {
         public static string clientID = "108169322756-pbgv2b3ng77akofik74airq8kffao5ou.apps.googleusercontent.com";
         public static string scope = "&scope=https://www.google.com/m8/feeds/&approval_prompt=force&access_type=offline";
-        public static string redirectURI = "https://socialprofiles-1.apphb.com/Response.aspx";
+        public static string redirectURI = "https://socialprofiles.apphb.com/Response.aspx";
     }
 }

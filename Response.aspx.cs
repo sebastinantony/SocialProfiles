@@ -25,13 +25,13 @@ namespace SocialProfiles
         {
             NameValueCollection collection = new NameValueCollection();
             collection.Add("code", GoogleClient.Code);
-            collection.Add("redirect_uri" , GoogleClient.RedirectURI );
+            collection.Add("redirect_uri" , HttpUtility.UrlEncode(GoogleClient.RedirectURI) );
             collection.Add("client_id" , GoogleClient.ClientID );
             collection.Add("scope", "");
             collection.Add("client_secret", GoogleClient.ClientSecret);
             collection.Add("grant_type", "authorization_code");
 
-            lblResponse.Text = "Response \n" +  GetWebResponse("https://accounts.google.com/o/oauth2/", collection);
+            ltResponse.Text = "<h1>Response</h1><p>" + GetWebResponse("https://accounts.google.com/o/oauth2/token", collection) + "</p>";
             
         }
 

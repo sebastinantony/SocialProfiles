@@ -128,8 +128,9 @@
       </p>
 
                 <p class="lead"> 
-                    <asp:Label ID="lblResponse" runat="server" Text=""></asp:Label>
+                    <asp:Literal ID="ltResponse" runat="server"></asp:Literal>
       </p>
+                
             </div>
             <!-- FOOTER -->
 

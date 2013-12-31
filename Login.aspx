@@ -67,7 +67,8 @@
         </div>
 
       </div>
-    </div>
+    
+        </div>
 
 
     <!-- Carousel
@@ -134,7 +135,7 @@
       <!-- FOOTER -->
         
             <div class="footer">
-        <p>&copy; @run @antony 2013</p>
+        <p>&copy; @run @antony 2014</p>
       </div>
       
 

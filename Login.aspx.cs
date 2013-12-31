@@ -16,7 +16,7 @@ namespace SocialProfiles
 
         protected void btnSign_Click(object sender, EventArgs e)
         {
-            Response.Redirect("https://accounts.google.com/o/oauth2/auth?redirect_uri=" + GoogleClient.redirectURI + "&response_type=code&client_id=" + GoogleClient.clientID + GoogleClient.scope);
+            Response.Redirect( GoogleClient.SignIn + GoogleClient.RedirectURI + "&response_type=code&client_id=" + GoogleClient.ClientID + GoogleClient.Scope);
         }
     }
 }

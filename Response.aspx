@@ -130,7 +130,12 @@
                 <p class="lead"> 
                     <asp:Literal ID="ltResponse" runat="server"></asp:Literal>
       </p>
-                
+             <p class ="lead">
+                 <asp:Button ID="btnListContacts" runat="server" Text="Click 4 Contact List" OnClick="btnListContacts_Click"  CssClass="btn btn-primary"/>
+             </p> 
+                <p class="lead">
+                    <asp:Label ID="lblListContact" runat="server" Text=""></asp:Label>
+                </p>  
             </div>
             <!-- FOOTER -->
 

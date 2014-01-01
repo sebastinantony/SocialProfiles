@@ -3,3 +3,6 @@ C:\Users\aantony\Documents\GitHub\SocialProfiles\bin\SocialProfiles.pdb
 C:\Users\aantony\Documents\GitHub\SocialProfiles\obj\Debug\SocialProfiles.csprojResolveAssemblyReference.cache
 C:\Users\aantony\Documents\GitHub\SocialProfiles\obj\Debug\SocialProfiles.dll
 C:\Users\aantony\Documents\GitHub\SocialProfiles\obj\Debug\SocialProfiles.pdb
+C:\Users\aantony\Documents\GitHub\SocialProfiles\bin\Newtonsoft.Json.dll
+C:\Users\aantony\Documents\GitHub\SocialProfiles\bin\Newtonsoft.Json.pdb
+C:\Users\aantony\Documents\GitHub\SocialProfiles\bin\Newtonsoft.Json.xml

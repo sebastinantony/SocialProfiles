@@ -74,39 +74,24 @@ namespace SocialProfiles
             }
         } 
 
-        static string GetContactDetails (string url , NameValueCollection parameters)
+        static string GetContactDetails (string url , WebHeaderCollection parameters)
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
-            //httpWebRequest.ContentType = "application/x-www-form-urlencoded";
             httpWebRequest.Method = "GET";
-
-            var sb = new StringBuilder();
-            foreach (var key in parameters.AllKeys)
-                sb.Append(key + "=" + parameters[key] + "&");
-            sb.Length = sb.Length - 1;
-
-            byte[] requestBytes = Encoding.UTF8.GetBytes(sb.ToString());
             httpWebRequest.ContentLength = 0;
 
-            //using (var requestStream = httpWebRequest.GetRequestStream())
-            //{
-            //    requestStream.Write(requestBytes, 0, requestBytes.Length);
-            //    requestStream.Close();
-            //}
+            httpWebRequest.Headers = parameters;
             WebResponse response = httpWebRequest.GetResponse();
-
-            Task<WebResponse> responseTask = Task.Factory.FromAsync<WebResponse>(httpWebRequest.BeginGetResponse, httpWebRequest.EndGetResponse, null);
-            using (var responseStream = responseTask.Result.GetResponseStream())
-            {
-                var reader = new StreamReader(responseStream);
-                return reader.ReadToEnd();
-            }
+            return response.GetResponseStream().ToString();
+            
         }
 
         protected void btnListContacts_Click(object sender, EventArgs e)
         {
-            NameValueCollection collections  = new NameValueCollection();
-            collections.Add("Authorization", "Bearer " +  Session["googleToken"]);
+            WebHeaderCollection collections = new WebHeaderCollection();
+            string key = "Bearer" + " " + Session["googleToken"].ToString();
+            collections.Add("Authorization", key);
+
             lblListContact.Text = GetContactDetails(GoogleClient.GetContacts, collections);
         } 
     }

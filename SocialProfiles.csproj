@@ -40,7 +40,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json">
-      <HintPath>F:\Study Materials\dotnet\json\Json50r6\Bin\Net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\Desktop 4\Json50r8\Bin\Net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />

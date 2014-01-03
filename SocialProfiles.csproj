@@ -68,9 +68,11 @@
     <Content Include="js\html5shiv.js" />
     <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="js\respond.min.js" />
+    <Content Include="ListOfContacts.xml" />
     <Content Include="Login.aspx" />
     <Content Include="Response.aspx" />
     <Content Include="Web.config" />
+    <Content Include="XmlTest.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GoogleClient.cs" />
@@ -89,6 +91,13 @@
     </Compile>
     <Compile Include="Response.aspx.designer.cs">
       <DependentUpon>Response.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="XmlTest.aspx.cs">
+      <DependentUpon>XmlTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="XmlTest.aspx.designer.cs">
+      <DependentUpon>XmlTest.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

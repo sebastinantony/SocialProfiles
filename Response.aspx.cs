@@ -10,12 +10,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Newtonsoft.Json;
+using System.Xml;
 
 namespace SocialProfiles
 {
     public partial class Response : System.Web.UI.Page
     {
         public string accessToken;
+        private static IAsyncResult asyncResult;
         public GoogleToken googleToken
         {
             get;
@@ -76,13 +78,15 @@ namespace SocialProfiles
 
         static string GetContactDetails (string url , WebHeaderCollection parameters)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
-            httpWebRequest.Method = "GET";
-            httpWebRequest.ContentLength = 0;
-
-            httpWebRequest.Headers = parameters;
-            WebResponse response = httpWebRequest.GetResponse();
-            return response.GetResponseStream().ToString();
+            HttpWebRequest request = null;
+            request = HttpWebRequest.Create(url) as HttpWebRequest;
+            request.Method = "GET";
+            request.Headers = parameters;
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Stream resStream =  response.GetResponseStream();
+            StreamReader reader = new StreamReader(resStream);
+            string result = reader.ReadToEnd();
+            return result;
             
         }
 
@@ -92,7 +96,21 @@ namespace SocialProfiles
             string key = "Bearer" + " " + Session["googleToken"].ToString();
             collections.Add("Authorization", key);
 
-            lblListContact.Text = GetContactDetails(GoogleClient.GetContacts, collections);
+            string strxml = GetContactDetails(GoogleClient.GetContacts, collections);
+            ReadXml(strxml);
+        }
+
+        private void ReadXml(string strxml)
+        {
+            StringBuilder sb = new StringBuilder();
+            using (XmlReader reader = XmlReader.Create(strxml))
+            {
+                reader.Read();
+                reader.ReadStartElement("Feeds");
+                reader.ReadStartElement("author");
+                reader.ReadContentAsString();
+
+            }
         } 
     }
 }

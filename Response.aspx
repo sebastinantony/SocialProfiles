@@ -134,7 +134,7 @@
                  <asp:Button ID="btnListContacts" runat="server" Text="Click 4 Contact List" OnClick="btnListContacts_Click"  CssClass="btn btn-primary"/>
              </p> 
                 <p class="lead">
-                    <asp:Label ID="lblListContact" runat="server" Text=""></asp:Label>
+                    <asp:Xml ID="xmlListContact" runat="server"></asp:Xml>
                 </p>  
             </div>
             <!-- FOOTER -->

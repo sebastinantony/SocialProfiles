@@ -11,6 +11,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Newtonsoft.Json;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace SocialProfiles
 {
@@ -96,21 +97,26 @@ namespace SocialProfiles
             string key = "Bearer" + " " + Session["googleToken"].ToString();
             collections.Add("Authorization", key);
 
-            string strxml = GetContactDetails(GoogleClient.GetContacts, collections);
-            ReadXml(strxml);
+            string strXml = GetContactDetails(GoogleClient.GetContacts, collections);
+            ReadXml(strXml);
         }
 
-        private void ReadXml(string strxml)
+        private void ReadXml(string strXml)
         {
-            StringBuilder sb = new StringBuilder();
-            using (XmlReader reader = XmlReader.Create(strxml))
-            {
-                reader.Read();
-                reader.ReadStartElement("Feeds");
-                reader.ReadStartElement("author");
-                reader.ReadContentAsString();
+            StringBuilder str = new StringBuilder();
+            XDocument doc = XDocument.Load(new StringReader(strXml));
+            XNamespace ns = "http://www.w3.org/2005/Atom";
+            var contactList = from c in doc.Descendants(ns + "entry")
+                              select new
+                              {
+                                  Title = c.Element(ns + "title").Value
+                              };
 
+            foreach (var contact in contactList)
+            {
+                str.AppendLine(contact.Title);
             }
+            ltContactList.Text =  str.ToString();
         } 
     }
 }

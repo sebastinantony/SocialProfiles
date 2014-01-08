@@ -75,6 +75,7 @@
     <Content Include="XmlTest.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entry.cs" />
     <Compile Include="GoogleClient.cs" />
     <Compile Include="GoogleToken.cs" />
     <Compile Include="Login.aspx.cs">

@@ -13,6 +13,6 @@ namespace SocialProfiles
         public static string RedirectURI = "https://socialprofiles.apphb.com/Response.aspx";
         public static string Code;
         public static string SignIn = "https://accounts.google.com/o/oauth2/auth?redirect_uri=";
-        public static string GetContacts = "https://www.google.com/m8/feeds/contacts/default/full/";
+        public static string GetContacts = "https://www.google.com/m8/feeds/contacts/default/full?max-results=300";
     }
 }

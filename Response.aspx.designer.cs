@@ -58,12 +58,12 @@ namespace SocialProfiles {
         protected global::System.Web.UI.WebControls.Button btnListContacts;
         
         /// <summary>
-        /// xmlListContact control.
+        /// ltContactList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Xml xmlListContact;
+        protected global::System.Web.UI.WebControls.Literal ltContactList;
     }
 }

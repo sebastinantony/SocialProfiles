@@ -104,19 +104,45 @@ namespace SocialProfiles
         private void ReadXml(string strXml)
         {
             StringBuilder str = new StringBuilder();
+            int count = 1;
             XDocument doc = XDocument.Load(new StringReader(strXml));
             XNamespace ns = "http://www.w3.org/2005/Atom";
+            XNamespace nsGD = "http://schemas.google.com/g/2005";
+            
             var contactList = from c in doc.Descendants(ns + "entry")
                               select new
                               {
                                   Title = c.Element(ns + "title").Value
                               };
-
-            foreach (var contact in contactList)
+            if (contactList.Count() > 0)
             {
-                str.AppendLine(contact.Title);
+                str.AppendLine("<table class= 'table-striped'>");
+                str.AppendLine("<thead>");
+                str.AppendLine("<tr>");
+                str.AppendLine("<th>#</th>");
+                str.AppendLine("<th>Name</th>");
+                //str.AppendLine("<th>Phone</th>");
+                str.AppendLine("</tr>");
+                str.AppendLine("</thead>");
+                str.AppendLine("<tbody>");
+                foreach (var contact in contactList)
+                {
+                    str.AppendLine("<tr>");
+                    str.AppendLine("<td>");
+                    str.AppendLine(count++.ToString());
+                    str.AppendLine("</td>");
+                    str.AppendLine("<td>");
+                    str.AppendLine(contact.Title);
+                    str.AppendLine("</td>");
+                    //str.AppendLine("<td>");
+                    //str.AppendLine(contact.Email);
+                    //str.AppendLine("</td>");
+                    str.AppendLine("</tr>");
+                }
+                str.AppendLine("</tbody>");
+                str.AppendLine("</table>");
             }
-            ltContactList.Text =  str.ToString();
+            ltContactList.Text = str.ToString();  
         } 
     }
 }
